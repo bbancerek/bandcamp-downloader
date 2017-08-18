@@ -1,4 +1,12 @@
-# Building jar
+# Bandcamp Downloader
+
+## Binaries
+
+Built jars are stored in bin folder.
+
+## Building jar
+
+This project is built with Maven.
 
 ```
 mvn clean package
@@ -13,9 +21,9 @@ BandcampDownloader depends on Google's gson - this dependency is contained in th
 
 Second command is copying file with app's properties to the target directory. This file has to be in the same directory as jar file (on the same level) for everything to work correcty.
 
-# Running from jar
+## Running from jar
 
-## BandcampDownloader
+### BandcampDownloader
 
 This is the main program.
 
@@ -43,7 +51,7 @@ Alternatively, via command:
   java -cp <jar name> bartibart.downloader.bandcamp.app.AppConfig -edit default.directory=<new value>
 ```
 
-## AppConfig
+### AppConfig
 
 This is an extra program for people who don't like to edit text files in standard text editors.
 
