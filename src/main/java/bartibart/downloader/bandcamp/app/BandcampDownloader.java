@@ -75,19 +75,25 @@ public class BandcampDownloader {
 
     private static void setURL(String rawUrl) {
         // check if it is an album url
-        if (rawUrl.matches("https://[^/]+\\.bandcamp\\.com/album/[^/]+/?")) {
+        if (rawUrl.matches("https://[^/]+/album/[^/]+/?")) {
             url = rawUrl;
             whatToDownload = DOWNLOAD_ALBUM;
-        } else if (rawUrl.matches("[^/]+\\.bandcamp\\.com/album/[^/]+/?")) {   // no protocole
+        } else if (rawUrl.matches("[^/]+\\.bandcamp\\.com/album/[^/]+/?")) { // bandcamp, no protocole
             url = "https://" + rawUrl;
+            whatToDownload = DOWNLOAD_ALBUM;
+        } else if (rawUrl.matches("[^/]+/album/[^/]+/?")) { // no protocole
+            url = "http://" + rawUrl;
             whatToDownload = DOWNLOAD_ALBUM;
         }
         // check if it is a track url
         if (rawUrl.matches("https://[^/]+\\.bandcamp\\.com/track/[^/]+/?")) {
             url = rawUrl;
             whatToDownload = DOWNLOAD_TRACK;
-        } else if (rawUrl.matches("[^/]+\\.bandcamp\\.com/track/[^/]+/?")) {   // no protocole
+        } else if (rawUrl.matches("[^/]+\\.bandcamp\\.com/track/[^/]+/?")) { // bandcamp, no protocole
             url = "https://" + rawUrl;
+            whatToDownload = DOWNLOAD_TRACK;
+        } else if (rawUrl.matches("[^/]+/track/[^/]+/?")) { // no protocole
+            url = "http://" + rawUrl;
             whatToDownload = DOWNLOAD_TRACK;
         }
     }
